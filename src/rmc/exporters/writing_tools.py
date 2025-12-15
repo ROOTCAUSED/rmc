@@ -45,7 +45,14 @@ def clamp(value):
 class Pen:
     def __init__(self, name, base_width, base_color_id):
         self.base_width = base_width
-        self.base_color = RM_PALETTE[base_color_id]
+        try:
+            self.base_color = RM_PALETTE[base_color_id]
+        except KeyError:
+            _logger.warning(
+                "Unknown pen base_color_id %r, falling back to yellow highlight",
+                base_color_id,
+            )
+            self.base_color = RM_PALETTE.get(PenColor.YELLOW_2, (247, 232, 81))
         self.name = name
         self.segment_length = 1000
         self.base_opacity = 1
@@ -54,6 +61,7 @@ class Pen:
         self.stroke_opacity = 1
         self.stroke_width = base_width
         self.stroke_color = base_color_id
+
 
     # note that the units of the points have had their units converted
     # in scene_stream.py

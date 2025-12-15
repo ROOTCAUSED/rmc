@@ -38,6 +38,10 @@ Right now the converter works well while there are no text boxes. If you add tex
 1. if the text box contains multiple lines, the lines are actually printed in the same line, and
 2. the position of the strokes gets corrupted.
 
+Highlighter and shader pen types are not working as of the latest update to rm files.
+
+Calligraphy pen fidelity is way off. 
+
 # Acknowledgements
 
 `rmc` uses [rmscene](https://github.com/ricklupton/rmscene) to read the `.rm` files, for which https://github.com/ddvk/reader helped a lot in figuring out the structure and meaning of the files.
